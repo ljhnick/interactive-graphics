@@ -106,6 +106,10 @@ class KeyframeNode: TriggeringOutputNode {
         u = (u < 0) ? 0 : u
         u = (u > 1) ? 1 : u
         
+        if currentU != nil {
+            u = (currentU != 0) ? CGFloat(currentU!) * u : 0
+        }
+        
         for i in 0..<warpGeometryGrid!.vertexCount {
             let x0 = initialState[i].x
             let y0 = initialState[i].y
