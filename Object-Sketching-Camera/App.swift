@@ -26,9 +26,6 @@ class App {
     var isRigStart = false
     var isRigEnd = false
     
-//    var isDrawing = false
-//    var isBinding = false
-//    var isKeyframing = false
 
     var currentState = 0
     var IS_DEFAULT = 0
