@@ -86,20 +86,28 @@ class App {
         isRigStart = false
         isRigEnd = false
         currentState = 0
-        
+    
         physicsJoints = [SKPhysicsJoint]()
-        
+    
         markersArrayShapeNode = [SKShapeNode]()
         drawingNodes = [SKShapeNode]()
         drawingNodesSprite = [SKSpriteNode]()
         keyframingNode = KeyframeNode()
+        keyframingNodes = [KeyframeNode]()
+        
         triggeringNode = TriggeringNode()
         
         articulatedObject = ArticulatedObject()
+        stringInJoints = [StringNode]()
         
         environment = EnvironmentNode()
         graphSubview = LineChartView()
         keyframesButtons = KeyframeButtonNode()
         keyframesButtonDeformButton = KeyframeDeformButton()
+        
+        // triggering node
+        forceNode = ForceNode()
+        visibilityNode = VisibilityNode()
+        physicsNode = PhysicsJointNode()
     }
 }
