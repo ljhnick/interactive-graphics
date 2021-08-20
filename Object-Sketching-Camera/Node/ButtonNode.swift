@@ -134,7 +134,6 @@ class KeyframeDeformButton: ButtonNode {
         guard let touchPoint = touches.first?.location(in: self) else { return }
         let touchPointInNode = self.convert(touchPoint, from: self)
         
-        print(touchPointInNode)
         if rotCCW!.contains(touchPointInNode) {
             App.state.keyframingNode.rotateCCW()
         } else if rotCW!.contains(touchPointInNode) {

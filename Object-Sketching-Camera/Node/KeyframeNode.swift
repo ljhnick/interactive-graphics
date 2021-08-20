@@ -128,7 +128,6 @@ class KeyframeNode: TriggeringOutputNode {
         updateWarpGeometryCurrent()
         allStates.append(currentState)
         allControlInput.append(controlInputValue())
-        print(controlInputValue())
     }
     
     func translationStart() {
