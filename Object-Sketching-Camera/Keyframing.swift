@@ -68,7 +68,7 @@ extension Scene {
             var selectedNode = [SKShapeNode]()
             let strokeNode = SKShapeNode(path: pathTemp)
             strokeNode.fillColor = .black
-            let strokeSprite = convertShapeToSprite(node: strokeNode)
+//            let strokeSprite = convertShapeToSprite(node: strokeNode)
 //            self.addChild(strokeSprite)
             
 //            print(strokeNode.path?.getPathElementsPoints())
@@ -94,6 +94,8 @@ extension Scene {
                 App.state.drawingNodesSprite.append(combinedNodeSprite)
                 App.state.articulatedObject.updateDrawings(spriteNode: combinedNodeSprite, selectedDrawing: selectedNode)
                 self.addChild(combinedNodeSprite)
+                
+                App.state.keyframeState = App.state.KEYFRAME_ADD
                 
                 setInitialState(node: combinedNodeSprite)
                 showButtonNode(node: combinedNodeSprite)
