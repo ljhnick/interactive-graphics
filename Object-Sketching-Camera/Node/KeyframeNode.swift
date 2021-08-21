@@ -36,6 +36,7 @@ class KeyframeNode: TriggeringOutputNode {
     var isControlPointSelectedMiddle = false
     var middleStartPoint = CGPoint.zero
     var translationStartPoints = [CGPoint]()
+    var translationCurrentPoints = [CGPoint]()
     
     var drivingParam = 0
     var POS_X = 0
@@ -65,8 +66,10 @@ class KeyframeNode: TriggeringOutputNode {
     }
     
     func updateWarpGeometryCurrent() {
+        translationCurrentPoints = [CGPoint]()
         for (i, _) in initialState.enumerated() {
             let pos = controlPoints[i].position
+            translationCurrentPoints.append(pos)
             let warpControlPointX = pos.x/targetNode!.size.width + 0.5
             let warpControlPointY = pos.y/targetNode!.size.height + 0.5
             let warpControlPoint = SIMD2(Float(warpControlPointX), Float(warpControlPointY))
@@ -131,6 +134,8 @@ class KeyframeNode: TriggeringOutputNode {
     }
     
     func translationStart() {
+        translationStartPoints = [CGPoint]()
+        middleStartPoint = controlPoints[4].position
         for point in controlPoints {
             translationStartPoints.append(point.position)
         }

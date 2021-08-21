@@ -63,18 +63,6 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         if App.state.keyframeState == App.state.KEYFRAME_ADD {
             keyframeAddFinalStateTouchesBegan(touches)
         }
-            
-//        let square = SKShapeNode(rectOf: CGSize(width: 64, height: 64))
-//        let pattern : [CGFloat] = [4.0, 4.0]
-//
-//        let dashed = square.path?.copy(dashingWithPhase: 1, lengths: pattern)
-//
-//        let shapeNode = SKShapeNode(path: dashed!)
-//        shapeNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-//        shapeNode.fillColor = SKColor.clear
-//        shapeNode.strokeColor = SKColor.red
-//        shapeNode.lineWidth = 2
-//        self.addChild(shapeNode)
         
     }
     
@@ -110,14 +98,17 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             
             let shape = SKShapeNode(path: pathShape)
             shape.physicsBody = SKPhysicsBody(polygonFrom: shape.path!)
-            shape.fillColor = .darkGray
+//            shape.fillColor = .darkGray
             shape.alpha = 1
+            shape.strokeColor = .orange
+            shape.lineWidth = 3
             
             if App.state.drawStaticObject {
                 shape.physicsBody = SKPhysicsBody(edgeLoopFrom: shape.path!)
             }
             
             self.addChild(shape)
+            App.state.environment.drawings.append(shape)
             
             pathTemp = CGMutablePath()
             drawPathArray.removeAll()
@@ -171,8 +162,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             }
             let line = SKShapeNode(path: path)
 //            line.path = path
-            line.strokeColor = .blue
-            line.lineWidth = 5
+            line.strokeColor = .yellow
+            line.lineWidth = 3
             let lineTexture = SKView().texture(from: line)
             let lineSpriteNode = SKSpriteNode(texture: lineTexture)
             lineSpriteNode.colorBlendFactor = 1
