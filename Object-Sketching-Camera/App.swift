@@ -21,6 +21,7 @@ class App {
     var drawPhysicalObject = false
     var drawStaticObject = false
     var shootBall = false
+    var bounceMax = false
     
     var startTime = TimeInterval()
     
@@ -82,6 +83,10 @@ class App {
     var visibilityNode = VisibilityNode()
     var physicsNode = PhysicsJointNode()
     
+    
+    // mis
+    var shootBalls = [SKShapeNode]()
+    
     func reset() {
         
         isRigStart = false
@@ -110,5 +115,7 @@ class App {
         forceNode = ForceNode()
         visibilityNode = VisibilityNode()
         physicsNode = PhysicsJointNode()
+        
+        shootBalls = [SKShapeNode]()
     }
 }

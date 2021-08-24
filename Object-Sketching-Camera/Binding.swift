@@ -79,8 +79,36 @@ extension Scene {
                                 self.addChild(string.stringNode!)
                                 
                                 App.state.stringInJoints.append(string)
-                                break
+                                return
                             }
+                        }
+                    }
+                    
+                    for drawing in App.state.drawingNodes {
+                        if endPoint.intersects(drawing) {
+                            anchorB = endPoint.position
+                            drawing.physicsBody = (drawing.physicsBody == nil) ? SKPhysicsBody(edgeChainFrom: drawing.path!) : drawing.physicsBody
+                            drawing.physicsBody?.contactTestBitMask = drawing.physicsBody!.collisionBitMask
+                            objB = drawing
+                            let physicsJoint = SKPhysicsJointSpring.joint(withBodyA: objA.physicsBody!, bodyB: objB.physicsBody!, anchorA: anchorA, anchorB: anchorB)
+                            physicsJoint.damping = 0.2
+                            physicsJoint.frequency = 1
+                            print(anchorA)
+                            print(drawing.frame.minX)
+                            
+                            App.state.physicsJoints.append(physicsJoint)
+                            
+                            let string = StringNode()
+                            string.bodyA = objA
+                            string.bodyB = objB
+                            string.anchorA = anchorA
+                            string.anchorB = anchorB
+                            
+                            string.setup()
+                            self.addChild(string.stringNode!)
+                            
+                            App.state.stringInJoints.append(string)
+                            break
                         }
                     }
                     

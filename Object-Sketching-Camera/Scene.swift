@@ -50,7 +50,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             appliedImpulseB = sqrt(vecB*vecB) * contactNormal
         }
         
-        if !App.state.shootBall {
+        if !App.state.shootBall && App.state.bounceMax {
             contact.bodyA.node?.physicsBody?.applyImpulse(appliedImpulseA)
             contact.bodyB.node?.physicsBody?.applyImpulse(appliedImpulseB)
         }
@@ -69,8 +69,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         if App.state.keyframeState == App.state.KEYFRAME_ADD {
             keyframeAddFinalStateTouchesBegan(touches)
         }
+
         
-        let ball1 = SKShapeNode()
         
     }
     
@@ -117,6 +117,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             
             self.addChild(shape)
             App.state.environment.drawings.append(shape)
+            App.state.drawingNodes.append(shape)
             
             pathTemp = CGMutablePath()
             drawPathArray.removeAll()
@@ -220,8 +221,10 @@ class Scene: SKScene, SKPhysicsContactDelegate {
     }
     
     func buttonRig() {
-        App.state.isRigStart = true
-        App.state.environment.initialize()
+        if !App.state.isRigStart {
+            App.state.isRigStart = true
+            App.state.environment.initialize()
+        }
     }
     
     // Drawing buttons

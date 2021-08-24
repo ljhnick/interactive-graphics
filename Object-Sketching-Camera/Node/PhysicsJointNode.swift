@@ -100,6 +100,8 @@ class PhysicsJointNode: TriggeringOutputNode {
         } else if flagHide {
             if controlInputU != 0 {
                 App.state.scene.physicsWorld.remove(physicsJoint!)
+                let node = App.state.scene.childNode(withName: "string")
+                App.state.scene.removeChildren(in: [node!])
             } else {
 //
 //                do {

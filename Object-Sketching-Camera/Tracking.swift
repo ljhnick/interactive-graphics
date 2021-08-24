@@ -27,22 +27,26 @@ extension Scene {
         if App.state.shootBall {
             if currentTime-startTime > 0.2 {
                 for (i, vec) in shootBall.enumerated() {
-                    let impulse = 200 * vec
+                    let impulse = 300 * vec
                     let startPoint = shootBallPos[i]
                     let ball = SKShapeNode(circleOfRadius: 3)
+                    let BCategory  : UInt32 = 0x1 << 0
+                    let BotCategory : UInt32 = 0x1 << 4
+                    let PadCategory : UInt32 = 0x1 << 5
+                    
                     ball.fillColor = .yellow
-                    ball.physicsBody = SKPhysicsBody(circleOfRadius: 0.1)
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: 1)
                     ball.physicsBody?.affectedByGravity = false
                     ball.physicsBody?.linearDamping = 0
                     ball.physicsBody?.restitution = 1
                     ball.physicsBody?.friction = 0
                     ball.position = startPoint
-//                    ball.physicsBody?.applyImpulse(CGVector(dx: 1000, dy: 10))
-//                    print(ball.physicsBody?.mass)
-//                    print(ball.physicsBody?.velocity)
                     ball.physicsBody?.velocity = impulse
-                    ball.physicsBody?.collisionBitMask = UInt32(0x1 << 1 * Int.random(in: 0...100))
+                    ball.physicsBody?.categoryBitMask = BCategory
+                    ball.physicsBody?.contactTestBitMask = BotCategory | PadCategory
+                    ball.physicsBody?.collisionBitMask = BotCategory | PadCategory
                     ball.name = "ball"
+                    App.state.shootBalls.append(ball)
                     self.addChild(ball)
                 }
                 

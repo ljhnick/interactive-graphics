@@ -29,6 +29,8 @@ class StringNode: SKNode {
         stringNode?.lineWidth = 3
         stringNode?.strokeColor = .darkGray
         
+        stringNode?.name = "string"
+        
         update()
     }
     

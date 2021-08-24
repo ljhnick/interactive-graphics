@@ -34,6 +34,7 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBOutlet weak var btnDrawPhysicalObject: UIButton!
     @IBOutlet weak var btnDrawStatic: UIButton!
     @IBOutlet weak var btnShoot: UIButton!
+    @IBOutlet weak var btnBounce: UIButton!
     
     // Load the SKScene from 'Scene.sks'
     var skScene = Scene(fileNamed: "Scene")!
@@ -89,6 +90,8 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     
     @IBAction func buttonKeyframeDone(_ sender: Any) {
         skScene.buttonKeyframeDone()
+        btnFrame.isHidden = true
+        btnFrameDone.isHidden = true
     }
     
     @IBAction func buttonTrigger(_ sender: Any) {
@@ -132,8 +135,16 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBAction func btnShoot(_ sender: Any) {
         App.state.shootBall.toggle()
         btnShoot.backgroundColor = (App.state.shootBall) ? .red : .darkGray
+        if !App.state.shootBall {
+            App.state.scene.removeChildren(in: App.state.shootBalls)
+            App.state.shootBalls.removeAll()
+        }
     }
     
+    @IBAction func btnBounce(_ sender: Any) {
+        App.state.bounceMax.toggle()
+        btnBounce.backgroundColor = (App.state.bounceMax) ? .red : .darkGray
+    }
     
     @IBAction func buttonReset(_ sender: Any) {
         skScene.buttonReset()

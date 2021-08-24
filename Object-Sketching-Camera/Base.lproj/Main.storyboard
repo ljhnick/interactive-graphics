@@ -127,6 +127,18 @@
                                     <action selector="btnShowPhysics:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7ci-Bb-tnW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPt-K6-Sfh">
+                                <rect key="frame" x="20" y="822" width="107" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Shoot Ball">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnShoot:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cf5-oH-Yu3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkc-f2-6W5">
                                 <rect key="frame" x="20" y="910" width="107" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -223,16 +235,16 @@
                                     <action selector="btnDrawStatic:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OyO-9S-oq5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPt-K6-Sfh">
-                                <rect key="frame" x="20" y="822" width="107" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-QU-rp4">
+                                <rect key="frame" x="20" y="778" width="128" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Shoot Ball">
+                                <state key="normal" title="Bounce max">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnShoot:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cf5-oH-Yu3"/>
+                                    <action selector="btnBounce:" destination="BV1-FR-VrT" eventType="touchUpInside" id="8uf-c7-xiP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -247,6 +259,7 @@
                     </view>
                     <connections>
                         <outlet property="btnBind" destination="8pO-cM-WKJ" id="9qh-0I-Qp7"/>
+                        <outlet property="btnBounce" destination="B3L-QU-rp4" id="hhE-3D-k7X"/>
                         <outlet property="btnBoundary" destination="jkc-f2-6W5" id="71J-mY-a0T"/>
                         <outlet property="btnDone" destination="SrG-AB-6Y1" id="Lgp-8a-GCe"/>
                         <outlet property="btnDrawPhysicalObject" destination="Jbv-1i-Ydt" id="wWe-Cf-iLi"/>
