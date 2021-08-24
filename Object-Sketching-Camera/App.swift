@@ -20,6 +20,7 @@ class App {
     var physicalBounday = false
     var drawPhysicalObject = false
     var drawStaticObject = false
+    var shootBall = false
     
     var startTime = TimeInterval()
     

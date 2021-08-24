@@ -33,6 +33,7 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBOutlet weak var btnBoundary: UIButton!
     @IBOutlet weak var btnDrawPhysicalObject: UIButton!
     @IBOutlet weak var btnDrawStatic: UIButton!
+    @IBOutlet weak var btnShoot: UIButton!
     
     // Load the SKScene from 'Scene.sks'
     var skScene = Scene(fileNamed: "Scene")!
@@ -113,6 +114,10 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBAction func btnDrawObject(_ sender: Any) {
         App.state.drawPhysicalObject.toggle()
         btnDrawPhysicalObject.backgroundColor = (App.state.drawPhysicalObject) ? .red : .darkGray
+        if !App.state.drawPhysicalObject {
+            App.state.drawStaticObject = false
+            btnDrawStatic.backgroundColor = (App.state.drawStaticObject) ? .red : .darkGray
+        }
     }
     
     @IBAction func btnDrawStatic(_ sender: Any) {
@@ -123,6 +128,12 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
         btnDrawStatic.backgroundColor = (App.state.drawStaticObject) ? .red : .darkGray
         btnDrawPhysicalObject.backgroundColor = (App.state.drawPhysicalObject) ? .red : .darkGray
     }
+    
+    @IBAction func btnShoot(_ sender: Any) {
+        App.state.shootBall.toggle()
+        btnShoot.backgroundColor = (App.state.shootBall) ? .red : .darkGray
+    }
+    
     
     @IBAction func buttonReset(_ sender: Any) {
         skScene.buttonReset()

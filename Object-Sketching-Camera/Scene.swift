@@ -17,6 +17,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
     var pathTemp = CGMutablePath()
     var startTime: TimeInterval!
 
+    var shootBall = [CGVector]()
+    var shootBallPos = [CGPoint]()
     
     
     override func didMove(to view: SKView) {
@@ -48,8 +50,12 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             appliedImpulseB = sqrt(vecB*vecB) * contactNormal
         }
         
-        contact.bodyA.node?.physicsBody?.applyImpulse(appliedImpulseA)
-        contact.bodyB.node?.physicsBody?.applyImpulse(appliedImpulseB)
+        if !App.state.shootBall {
+            contact.bodyA.node?.physicsBody?.applyImpulse(appliedImpulseA)
+            contact.bodyB.node?.physicsBody?.applyImpulse(appliedImpulseB)
+        }
+        
+        
         
     }
     
@@ -63,6 +69,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         if App.state.keyframeState == App.state.KEYFRAME_ADD {
             keyframeAddFinalStateTouchesBegan(touches)
         }
+        
+        let ball1 = SKShapeNode()
         
     }
     
@@ -109,6 +117,24 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             
             self.addChild(shape)
             App.state.environment.drawings.append(shape)
+            
+            pathTemp = CGMutablePath()
+            drawPathArray.removeAll()
+            
+            return
+        }
+        
+        if App.state.shootBall {
+            let start = drawPathArray.first
+            shootBallPos.append(start!)
+            
+            let end = drawPathArray.last
+            var vec = CGVector(dx: end!.x - start!.x, dy: end!.y - start!.y)
+            let len = sqrt(pow(vec.dx, 2) + pow(vec.dy, 2))
+            vec.dx = vec.dx / len
+            vec.dy = vec.dy / len
+                           
+            shootBall.append(vec)
             
             pathTemp = CGMutablePath()
             drawPathArray.removeAll()
@@ -189,6 +215,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         
         pathTemp = CGMutablePath()
         drawPathArray.removeAll()
+        
+        
     }
     
     func buttonRig() {

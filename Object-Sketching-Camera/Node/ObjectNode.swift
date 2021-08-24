@@ -58,6 +58,8 @@ class ArticulatedLink: SKNode{
     var drawings = [SKShapeNode]() // fixed shape
     var drawingsSprite = [SKSpriteNode]()
     var joints = [JointNode]()
+    var length = CGFloat()
+    
     var pos = CGPoint()
 //    var connectedLink = [ArticulatedLink]()
     
@@ -100,6 +102,8 @@ class ArticulatedLink: SKNode{
             path.addLine(to: node.position)
         }
         lines.path = path.copy(dashingWithPhase: 1, lengths: [4.0, 4.0])
+        
+        length = Scene().distanceCGPoints(nodes.first!.position, nodes.last!.position)
         
         if drawings.count > 0 {
             updateDrawings()

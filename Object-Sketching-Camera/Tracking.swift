@@ -16,12 +16,38 @@ extension Scene {
         startTime = (App.state.isRigStart) ? startTime : currentTime
         if (currentTime - startTime)/2 > 1 {
             
-            let ball = SKShapeNode(circleOfRadius: 10)
-            ball.physicsBody = SKPhysicsBody(polygonFrom: ball.path!)
-            ball.position = CGPoint(x: 0, y: 683)
-            ball.fillColor = .red
-//            self.addChild(ball)
-            startTime = currentTime
+//            let ball = SKShapeNode(circleOfRadius: 10)
+//            ball.physicsBody = SKPhysicsBody(polygonFrom: ball.path!)
+//            ball.position = CGPoint(x: 0, y: 683)
+//            ball.fillColor = .red
+////            self.addChild(ball)
+//            startTime = currentTime
+        }
+        
+        if App.state.shootBall {
+            if currentTime-startTime > 0.2 {
+                for (i, vec) in shootBall.enumerated() {
+                    let impulse = 200 * vec
+                    let startPoint = shootBallPos[i]
+                    let ball = SKShapeNode(circleOfRadius: 3)
+                    ball.fillColor = .yellow
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: 0.1)
+                    ball.physicsBody?.affectedByGravity = false
+                    ball.physicsBody?.linearDamping = 0
+                    ball.physicsBody?.restitution = 1
+                    ball.physicsBody?.friction = 0
+                    ball.position = startPoint
+//                    ball.physicsBody?.applyImpulse(CGVector(dx: 1000, dy: 10))
+//                    print(ball.physicsBody?.mass)
+//                    print(ball.physicsBody?.velocity)
+                    ball.physicsBody?.velocity = impulse
+                    ball.physicsBody?.collisionBitMask = UInt32(0x1 << 1 * Int.random(in: 0...100))
+                    ball.name = "ball"
+                    self.addChild(ball)
+                }
+                
+                startTime = currentTime
+            }
         }
         
         
