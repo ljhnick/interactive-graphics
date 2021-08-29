@@ -96,7 +96,7 @@ using namespace std;
     Mat mask;
     Mat dst;
     
-    Scalar lower = Scalar(0, 170, 0, 0);
+    Scalar lower = Scalar(0, 180, 0, 0);
     Scalar upper = Scalar(140, 255, 180, 255);
     
     inRange(src, lower, upper, mask);
@@ -116,7 +116,7 @@ using namespace std;
     
     if (contours.size() > 0) {
         for (int i = 0; i < contours.size(); i++) {
-            if (contourArea(contours[i]) > 150) {
+            if (contourArea(contours[i]) > 80) {
                 contoursValid.push_back(contours[i]);
             }
         }
