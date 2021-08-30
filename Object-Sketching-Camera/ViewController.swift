@@ -36,6 +36,7 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBOutlet weak var btnDrawStatic: UIButton!
     @IBOutlet weak var btnShoot: UIButton!
     @IBOutlet weak var btnBounce: UIButton!
+
     
     // Load the SKScene from 'Scene.sks'
     var skScene = Scene(fileNamed: "Scene")!
@@ -152,6 +153,30 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBAction func btnBounce(_ sender: Any) {
         App.state.bounceMax.toggle()
         btnBounce.backgroundColor = (App.state.bounceMax) ? .red : .darkGray
+    }
+    
+    @IBAction func btnWhite(_ sender: Any) {
+        App.state.strokeColor = .white
+    }
+    
+    @IBAction func btnBlue(_ sender: Any) {
+        App.state.strokeColor = .blue
+    }
+    
+    @IBAction func btnGreen(_ sender: Any) {
+        App.state.strokeColor = .green
+    }
+    
+    @IBAction func btnYellow(_ sender: Any) {
+        App.state.strokeColor = UIColor(red: 1, green: 1, blue: 0.5, alpha: 1)
+    }
+    
+    @IBAction func btnOrange(_ sender: Any) {
+        App.state.strokeColor = .orange
+    }
+    
+    @IBAction func btnRed(_ sender: Any) {
+        App.state.strokeColor = .red
     }
     
     @IBAction func buttonReset(_ sender: Any) {
