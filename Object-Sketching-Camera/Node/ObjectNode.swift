@@ -125,9 +125,9 @@ class ArticulatedLink: SKNode{
         
 //        let dashedPath = path.copy(dashingWithPhase: 1, lengths: [4.0, 4.0])
         lines = SKShapeNode(path: path)
-        lines.path = lines.path?.copy(dashingWithPhase: 1, lengths: [4.0, 4.0])
-        lines.strokeColor = .darkGray
-        lines.lineWidth = 3
+        lines.path = lines.path?.copy(dashingWithPhase: 2, lengths: [10.0, 10.0])
+        lines.strokeColor = .white
+        lines.lineWidth = 8
         
         
         

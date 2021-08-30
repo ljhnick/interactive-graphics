@@ -150,6 +150,14 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
         skScene.buttonReset()
     }
     
+    @IBAction func btnUndo(_ sender: Any) {
+        App.state.scene.removeChildren(in: [App.state.drawingNodes.last!])
+        let lastNode = App.state.drawingNodes.last!
+        if App.state.environment.drawings.last! == lastNode {
+            App.state.environment.drawings.removeLast()
+        }
+        App.state.drawingNodes.removeLast()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

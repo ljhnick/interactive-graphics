@@ -82,8 +82,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         pathTemp.addLine(to: touchPoint)
         self.removeChildren(in: [lineTemp])
         lineTemp.path = pathTemp
-        lineTemp.strokeColor = .white
-        lineTemp.lineWidth = 3
+        lineTemp.strokeColor = App.state.strokeColor
+        lineTemp.lineWidth = App.state.lineWidth
         self.addChild(lineTemp)
         
         if App.state.keyframeState == App.state.KEYFRAME_ADD {
@@ -108,8 +108,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             shape.physicsBody = SKPhysicsBody(polygonFrom: shape.path!)
 //            shape.fillColor = .darkGray
             shape.alpha = 1
-            shape.strokeColor = .orange
-            shape.lineWidth = 3
+            shape.strokeColor = App.state.strokeColor
+            shape.lineWidth = App.state.lineWidth
             
             if App.state.drawStaticObject {
                 shape.physicsBody = SKPhysicsBody(edgeLoopFrom: shape.path!)
@@ -189,8 +189,8 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             }
             let line = SKShapeNode(path: path)
 //            line.path = path
-            line.strokeColor = .yellow
-            line.lineWidth = 3
+            line.strokeColor = App.state.strokeColor
+            line.lineWidth = App.state.lineWidth
             let lineTexture = SKView().texture(from: line)
             let lineSpriteNode = SKSpriteNode(texture: lineTexture)
             lineSpriteNode.colorBlendFactor = 1

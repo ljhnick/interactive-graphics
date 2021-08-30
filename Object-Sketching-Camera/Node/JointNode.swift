@@ -68,7 +68,7 @@ class JointNode: SKNode {
         print(ang2)
         
         arc = SKShapeNode(path: arcPath.cgPath)
-        arc?.lineWidth = 3
+        arc?.lineWidth = 8
         arc?.strokeColor = .darkGray
         
         joint.addChild(arc!)

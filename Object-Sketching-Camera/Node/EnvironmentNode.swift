@@ -39,12 +39,16 @@ class EnvironmentNode: SKNode {
         visibilityPickerNode?.setupVisiblitySlider()
         
         
-        let size = CGSize(width: 100, height: 40)
+        let size = CGSize(width: 120, height: 40)
         gravityNode = SKSpriteNode(color: .darkGray, size: size)
         visibilityNode = SKSpriteNode(color: .darkGray, size: size)
         
         gravityLabel = SKLabelNode(text: "Gravity")
+        gravityLabel?.fontName = "AvenirNext-Bold"
+        gravityLabel?.fontSize = 25
         visibilityLabel = SKLabelNode(text: "Visibility")
+        visibilityLabel?.fontName = "AvenirNext-Bold"
+        visibilityLabel?.fontSize = 25
         
         gravityLabel?.position = CGPoint(x: 0, y: -10)
         visibilityLabel?.position = CGPoint(x: 0, y: -10)

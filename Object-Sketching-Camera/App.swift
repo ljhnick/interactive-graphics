@@ -83,6 +83,9 @@ class App {
     var visibilityNode = VisibilityNode()
     var physicsNode = PhysicsJointNode()
     
+    var strokeColor : UIColor = .yellow
+    var lineWidth: CGFloat = 6
+    
     
     // mis
     var shootBalls = [SKShapeNode]()

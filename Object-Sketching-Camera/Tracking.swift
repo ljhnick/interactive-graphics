@@ -84,7 +84,7 @@ extension Scene {
                 let circle = SKShapeNode(circleOfRadius: 10)
                 circle.position = convertPoint(fromView: CGPoint(x: Double(x[i]), y: Double(y[i])-8))
                 circle.strokeColor = .white
-                circle.lineWidth = 1
+                circle.lineWidth = 3
                 circle.fillColor = .green
                 circle.name = String(i)
                 self.addChild(circle)

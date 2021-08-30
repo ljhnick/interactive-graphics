@@ -83,7 +83,7 @@ extension Scene {
                 let combinedNode = SKNode()
                 for node in selectedNode {
                     node.removeFromParent()
-                    node.strokeColor = .orange
+                    node.strokeColor = App.state.strokeColor
                     combinedNode.addChild(node)
                 }
                 
