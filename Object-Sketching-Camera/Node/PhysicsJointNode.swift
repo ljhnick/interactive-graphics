@@ -44,6 +44,10 @@ class PhysicsJointNode: TriggeringOutputNode {
         labelAdd.fontSize = 15
         labelDone.fontSize = 15
         
+        labelHide.fontName = "AvenirNext-Bold"
+        labelAdd.fontName = "AvenirNext-Bold"
+        labelDone.fontName = "AvenirNext-Bold"
+        
         labelHide.position.y = -7.5
         labelAdd.position.y = -7.5
         labelDone.position.y = -7.5

@@ -115,12 +115,12 @@ extension Scene {
         }
         
         
-        if App.state.keyframeState == App.state.KEYFRAME_DONE && !App.state.triggeringState {
-            for node in App.state.keyframingNodes {
-                node.updateWarpGeometryInterpolation()
-            }
-//            App.state.keyframingNode.updateWarpGeometryInterpolation()
+//        if App.state.keyframeState == App.state.KEYFRAME_DONE && !App.state.triggeringState {
+        for node in App.state.keyframingNodes {
+            node.updateWarpGeometryInterpolation()
         }
+//            App.state.keyframingNode.updateWarpGeometryInterpolation()
+//        }
         
         if App.state.triggeringNode.triggeredDidSetup {
             App.state.triggeringNode.update()

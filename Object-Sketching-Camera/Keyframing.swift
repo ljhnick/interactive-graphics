@@ -76,6 +76,7 @@ extension Scene {
                 if strokeNode.intersects(drawing) {
                     selectedNode.append(drawing)
                     App.state.environment.drawings.removeAll(where: {$0 == drawing})
+                    App.state.drawingNodes.removeAll(where: {$0 == drawing})
                 }
             }
             
@@ -159,7 +160,7 @@ extension Scene {
             let cornerStart = CGPoint(x: -width/2, y: -height/2)
             controlPointNode.position.x = cornerStart.x + CGFloat(scaledX) * width
             controlPointNode.position.y = cornerStart.y + CGFloat(scaledY) * height
-            controlPointNode.fillColor = .yellow
+            controlPointNode.fillColor = .orange
             App.state.keyframingNode.controlPoints.append(controlPointNode)
             node.addChild(controlPointNode)
         }

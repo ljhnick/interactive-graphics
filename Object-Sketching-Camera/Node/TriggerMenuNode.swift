@@ -35,11 +35,13 @@ class InputMenuNode: MenuNode {
         let posXLabel = SKLabelNode(text: "PosX")
         posXLabel.fontSize = 20
         posXLabel.position.y -= 10
+        posXLabel.fontName = "AvenirNext-Bold"
         posX?.addChild(posXLabel)
         
         let posYLabel = SKLabelNode(text: "PosY")
         posYLabel.fontSize = 20
         posYLabel.position.y -= 10
+        posYLabel.fontName = "AvenirNext-Bold"
         posY?.addChild(posYLabel)
         
         
@@ -60,6 +62,7 @@ class InputMenuNode: MenuNode {
         
         if !link!.joints.isEmpty {
             let ang1Label = SKLabelNode(text: "Ang")
+            ang1Label.fontName = "AvenirNext-Bold"
             ang1Label.fontSize = 20
             ang1Label.position.y -= 10
             ang1?.addChild(ang1Label)
@@ -70,6 +73,7 @@ class InputMenuNode: MenuNode {
             
             if link!.joints.count > 1 {
                 let ang2Label = SKLabelNode(text: "Ang")
+                ang2Label.fontName = "AvenirNext-Bold"
                 ang2Label.fontSize = 20
                 ang2Label.position.y -= 10
                 ang2?.addChild(ang2Label)
@@ -103,6 +107,12 @@ class InputMenuNode: MenuNode {
         
         let labelData1 = SKLabelNode(text: "data1")
         let labelData2 = SKLabelNode(text: "data2")
+        labelLinear.fontName = "AvenirNext-Bold"
+        labelStep.fontName = "AvenirNext-Bold"
+        labelPulse.fontName = "AvenirNext-Bold"
+        labelData1.fontName = "AvenirNext-Bold"
+        labelData2.fontName = "AvenirNext-Bold"
+        
         
         labelLinear.fontSize = 15
         labelStep.fontSize = 15

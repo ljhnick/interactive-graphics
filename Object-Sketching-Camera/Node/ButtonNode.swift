@@ -107,16 +107,19 @@ class KeyframeDeformButton: ButtonNode {
         
         let labelCW = SKLabelNode(text: "CW")
         labelCW.fontSize = 10
+        labelCW.fontName = "AvenirNext-Bold"
         labelCW.fontColor = .black
         rotCW?.addChild(labelCW)
         
         let labelCCW = SKLabelNode(text: "CCW")
         labelCCW.fontSize = 10
+        labelCCW.fontName = "AvenirNext-Bold"
         labelCCW.fontColor = .black
         rotCCW?.addChild(labelCCW)
         
         let labelWipe = SKLabelNode(text: "wipe")
         labelWipe.fontSize = 10
+        labelWipe.fontName = "AvenirNext-Bold"
         labelWipe.fontColor = .black
         wipe?.addChild(labelWipe)
         

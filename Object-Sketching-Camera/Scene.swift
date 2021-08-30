@@ -82,7 +82,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         pathTemp.addLine(to: touchPoint)
         self.removeChildren(in: [lineTemp])
         lineTemp.path = pathTemp
-        lineTemp.strokeColor = App.state.strokeColor
+        lineTemp.strokeColor = .white
         lineTemp.lineWidth = App.state.lineWidth
         self.addChild(lineTemp)
         
@@ -191,11 +191,11 @@ class Scene: SKScene, SKPhysicsContactDelegate {
 //            line.path = path
             line.strokeColor = App.state.strokeColor
             line.lineWidth = App.state.lineWidth
-            let lineTexture = SKView().texture(from: line)
-            let lineSpriteNode = SKSpriteNode(texture: lineTexture)
-            lineSpriteNode.colorBlendFactor = 1
-            lineSpriteNode.color = .red
-            lineSpriteNode.position = CGPoint.zero
+//            let lineTexture = SKView().texture(from: line)
+//            let lineSpriteNode = SKSpriteNode(texture: lineTexture)
+//            lineSpriteNode.colorBlendFactor = 1
+//            lineSpriteNode.color = .red
+//            lineSpriteNode.position = CGPoint.zero
             App.state.drawingNodes.append(line)
             App.state.environment.drawings.append(line)
             self.addChild(line)
