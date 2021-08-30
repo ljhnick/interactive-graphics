@@ -91,16 +91,16 @@
                                     <action selector="buttonAdd1:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RQT-hJ-MX7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agA-oy-Z0j">
-                                <rect key="frame" x="304" y="108" width="111" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmz-se-m5f">
+                                <rect key="frame" x="304" y="106" width="111" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <state key="normal" title="Done">
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                <state key="normal" title="Swap">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonKeyframeDone:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ai8-Dn-nd4"/>
+                                    <action selector="btnSwap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="vCq-Hp-8PN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBl-OM-rOy">
@@ -113,6 +113,18 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonReset:" destination="BV1-FR-VrT" eventType="touchUpInside" id="WYs-6w-biz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9C-Z4-ze5">
+                                <rect key="frame" x="1255" y="62" width="81" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnUndo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="FI8-sc-uiI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-XQ-K37">
@@ -247,16 +259,16 @@
                                     <action selector="btnDrawStatic:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OyO-9S-oq5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9C-Z4-ze5">
-                                <rect key="frame" x="1255" y="62" width="81" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agA-oy-Z0j">
+                                <rect key="frame" x="304" y="154" width="111" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Undo">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnUndo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="FI8-sc-uiI"/>
+                                    <action selector="buttonKeyframeDone:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Ai8-Dn-nd4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -283,6 +295,7 @@
                         <outlet property="btnShoot" destination="FPt-K6-Sfh" id="YBJ-MF-qaj"/>
                         <outlet property="btnShowphysics" destination="kRc-XQ-K37" id="dgZ-Lh-7cj"/>
                         <outlet property="btnSpring" destination="Jf0-sm-KYj" id="A95-zr-1vw"/>
+                        <outlet property="btnSwap" destination="mmz-se-m5f" id="d87-Yc-mdv"/>
                         <outlet property="btnTriggerDone" destination="k00-7a-ph9" id="Umq-80-cHo"/>
                         <outlet property="buttonDraw" destination="K8F-f2-VlC" id="tdo-dQ-Sif"/>
                         <outlet property="buttonReset" destination="cBl-OM-rOy" id="a6G-Fi-2u4"/>

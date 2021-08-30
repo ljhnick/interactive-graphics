@@ -25,6 +25,7 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
     @IBOutlet weak var btnDone: UIButton!
     
     @IBOutlet weak var btnFrame: UIButton!
+    @IBOutlet weak var btnSwap: UIButton!
     @IBOutlet weak var btnFrameDone: UIButton!
     
     @IBOutlet weak var btnTriggerDone: UIButton!
@@ -82,16 +83,23 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
         
         btnFrame.isHidden = false
         btnFrameDone.isHidden = false
+        btnSwap.isHidden = false
     }
     
     @IBAction func buttonAdd1(_ sender: Any) {
         skScene.buttonAddFinalState()
     }
     
+    @IBAction func btnSwap(_ sender: Any) {
+        skScene.buttonSwap()
+    }
+    
+    
     @IBAction func buttonKeyframeDone(_ sender: Any) {
         skScene.buttonKeyframeDone()
         btnFrame.isHidden = true
         btnFrameDone.isHidden = true
+        btnSwap.isHidden = true
     }
     
     @IBAction func buttonTrigger(_ sender: Any) {

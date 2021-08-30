@@ -273,6 +273,10 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         App.state.keyframingNode.addKeyframe()
     }
     
+    func buttonSwap() {
+        
+    }
+    
     func buttonKeyframeDone() {
         App.state.keyframeState = App.state.KEYFRAME_DONE
         App.state.keyframingNode.updateWarpGeometryFinal()
