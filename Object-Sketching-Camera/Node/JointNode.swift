@@ -64,8 +64,6 @@ class JointNode: SKNode {
         
         let arcPath = UIBezierPath(arcCenter: CGPoint.zero, radius: 20, startAngle: ang1, endAngle: ang2, clockwise: true)
         
-        print(ang1)
-        print(ang2)
         
         arc = SKShapeNode(path: arcPath.cgPath)
         arc?.lineWidth = 8
