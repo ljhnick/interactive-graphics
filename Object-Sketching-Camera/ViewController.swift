@@ -147,6 +147,8 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
         if !App.state.shootBall {
             App.state.scene.removeChildren(in: App.state.shootBalls)
             App.state.shootBalls.removeAll()
+            App.state.shootBallDir.removeAll()
+            App.state.shootBallPos.removeAll()
         }
     }
     

@@ -26,9 +26,9 @@ extension Scene {
         
         if App.state.shootBall {
             if currentTime-startTime > 0.2 {
-                for (i, vec) in shootBall.enumerated() {
+                for (i, vec) in App.state.shootBallDir.enumerated() {
                     let impulse = 300 * vec
-                    let startPoint = shootBallPos[i]
+                    let startPoint = App.state.shootBallPos[i]
                     let ball = SKShapeNode(circleOfRadius: 3)
                     let BCategory  : UInt32 = 0x1 << 0
                     let BotCategory : UInt32 = 0x1 << 4

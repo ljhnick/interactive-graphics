@@ -16,9 +16,6 @@ class Scene: SKScene, SKPhysicsContactDelegate {
     var lineTemp = SKShapeNode()
     var pathTemp = CGMutablePath()
     var startTime: TimeInterval!
-
-    var shootBall = [CGVector]()
-    var shootBallPos = [CGPoint]()
     
     
     override func didMove(to view: SKView) {
@@ -127,7 +124,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         
         if App.state.shootBall {
             let start = drawPathArray.first
-            shootBallPos.append(start!)
+            App.state.shootBallPos.append(start!)
             
             let end = drawPathArray.last
             var vec = CGVector(dx: end!.x - start!.x, dy: end!.y - start!.y)
@@ -135,7 +132,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
             vec.dx = vec.dx / len
             vec.dy = vec.dy / len
                            
-            shootBall.append(vec)
+            App.state.shootBallDir.append(vec)
             
             pathTemp = CGMutablePath()
             drawPathArray.removeAll()

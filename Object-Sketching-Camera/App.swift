@@ -83,6 +83,9 @@ class App {
     var visibilityNode = VisibilityNode()
     var physicsNode = PhysicsJointNode()
     
+    var shootBallDir = [CGVector]()
+    var shootBallPos = [CGPoint]()
+    
     var strokeColor : UIColor = UIColor(red: 1, green: 1, blue: 0.5, alpha: 1)
     var lineWidth: CGFloat = 6
     
