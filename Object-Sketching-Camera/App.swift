@@ -46,6 +46,7 @@ class App {
     var KEYFRAME_CIRCLE = 1
     var KEYFRAME_ADD = 2
     var KEYFRAME_DONE = 3
+    var KEYFRAME_SWAP = 4
     
     var keyframeTrackingState = 0
     var KEYFRAME_TRACKING_ANGLE = 0
@@ -77,6 +78,7 @@ class App {
     var graphSubview = LineChartView()
     var keyframesButtons = KeyframeButtonNode()
     var keyframesButtonDeformButton = KeyframeDeformButton()
+    var keyframesSwapDrawing = SKShapeNode()
     
     // triggering node
     var forceNode = ForceNode()
@@ -116,6 +118,7 @@ class App {
         graphSubview = LineChartView()
         keyframesButtons = KeyframeButtonNode()
         keyframesButtonDeformButton = KeyframeDeformButton()
+        keyframesSwapDrawing = SKShapeNode()
         
         // triggering node
         forceNode = ForceNode()

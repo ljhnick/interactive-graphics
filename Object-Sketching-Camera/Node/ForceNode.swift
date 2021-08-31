@@ -34,7 +34,7 @@ class ForceNode: TriggeringOutputNode {
         
         forceArrow = SKShapeNode(circleOfRadius: 6)
         forceArrow.fillColor = .darkGray
-        forceBody.strokeColor = .darkGray
+        forceBody.strokeColor = .white
         forceBody.lineWidth = 3
         
         self.addChild(forceBody)

@@ -124,13 +124,19 @@ class KeyframeNode: TriggeringOutputNode {
         }
         
         targetNode?.warpGeometry = warpGeometryGrid?.replacingByDestinationPositions(positions: currentState)
-        
+         
     }
     
     func addKeyframe() {
         updateWarpGeometryCurrent()
         allStates.append(currentState)
         allControlInput.append(controlInputValue())
+    }
+    
+    func addKeyframeSwap(newInput: CGFloat) {
+        updateWarpGeometryCurrent()
+        allStates.append(currentState)
+        allControlInput.append(newInput)
     }
     
     func translationStart() {

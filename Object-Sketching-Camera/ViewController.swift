@@ -223,6 +223,7 @@ class ViewController: UIViewController, ARSKViewDelegate, ChartViewDelegate {
         
         btnFrame.isHidden = true
         btnFrameDone.isHidden = true
+        btnSwap.isHidden = true
         
         btnTriggerDone.isHidden = true
         

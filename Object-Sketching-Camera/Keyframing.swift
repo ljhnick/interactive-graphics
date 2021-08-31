@@ -107,6 +107,21 @@ extension Scene {
             App.state.keyframingNode.isControlPointSelected = false
             App.state.keyframingNode.isControlPointSelectedMiddle = false
             
+        case App.state.KEYFRAME_SWAP:
+            let pathShape = CGMutablePath()
+            pathShape.move(to: drawPathArray[0])
+            for point in drawPathArray {
+                pathShape.addLine(to: point)
+            }
+            
+            let shape = SKShapeNode(path: pathShape)
+            shape.lineWidth = App.state.lineWidth
+            shape.strokeColor = App.state.strokeColor
+            
+            App.state.keyframesSwapDrawing.addChild(shape)
+            App.state.keyframesSwapDrawing.removeFromParent()
+            self.addChild(App.state.keyframesSwapDrawing)
+            
         default:
             ()
         }

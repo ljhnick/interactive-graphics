@@ -17,6 +17,10 @@ class Scene: SKScene, SKPhysicsContactDelegate {
     var pathTemp = CGMutablePath()
     var startTime: TimeInterval!
     
+    var keyframeSwapNewInput = CGFloat()
+    var keyframeSwapNewInputDir = CGFloat()
+    var keyframeCorrespondingLink: ArticulatedLink?
+    
     
     override func didMove(to view: SKView) {
 //        view.addSubview(App.state.graphSubview)
@@ -272,17 +276,96 @@ class Scene: SKScene, SKPhysicsContactDelegate {
     
     func buttonSwap() {
         
-    }
-    
-    func buttonKeyframeDone() {
-        App.state.keyframeState = App.state.KEYFRAME_DONE
+        buttonAddFinalState()
+        App.state.keyframeState = App.state.KEYFRAME_SWAP
+        
+        App.state.keyframingNode.hide()
+        let num = App.state.keyframingNode.allControlInput.count
+        let lastInput = App.state.keyframingNode.allControlInput[num-1]
+        let lastSecondInput = App.state.keyframingNode.allControlInput[num-2]
+        let newInput = (lastInput-lastSecondInput > 0) ? lastInput+0.01 : lastInput-0.01
+        let newInputDir = (lastInput-lastSecondInput > 0) ? lastInput+100 : lastInput-100
+        
+        keyframeSwapNewInput = newInput
+        keyframeSwapNewInputDir = newInputDir
+        
+        App.state.keyframingNode.addKeyframeSwap(newInput: newInput)
+        App.state.keyframingNode.addKeyframeSwap(newInput: newInputDir)
+        
         App.state.keyframingNode.updateWarpGeometryFinal()
+        App.state.keyframingNodes.append(App.state.keyframingNode)
+        
+        let controlInput = App.state.keyframingNode.controlInput
+        let drivingPrams = App.state.keyframingNode.drivingParam
+        
         for node in App.state.keyframingNode.targetNode!.children {
             node.isHidden = true
         }
         
-        App.state.keyframingNodes.append(App.state.keyframingNode)
+        for link in App.state.articulatedObject.links {
+            if link.drawingsSprite.contains(App.state.keyframingNode.targetNode!) {
+                keyframeCorrespondingLink = link
+            }
+        }
+        
         App.state.keyframingNode = KeyframeNode()
+        App.state.keyframingNode.controlInput = controlInput
+        App.state.keyframingNode.drivingParam = drivingPrams
+        
+    }
+    
+    func buttonKeyframeDone() {
+        if App.state.keyframeState == App.state.KEYFRAME_ADD {
+            App.state.keyframeState = App.state.KEYFRAME_DONE
+            App.state.keyframingNode.updateWarpGeometryFinal()
+            for node in App.state.keyframingNode.targetNode!.children {
+                node.isHidden = true
+            }
+            
+            App.state.keyframingNodes.append(App.state.keyframingNode)
+            App.state.keyframingNode = KeyframeNode()
+        } else if App.state.keyframeState == App.state.KEYFRAME_SWAP {
+            if App.state.keyframesSwapDrawing.children.isEmpty {
+                App.state.keyframeState = App.state.KEYFRAME_DONE
+                return
+            }
+            App.state.keyframesSwapDrawing.removeFromParent()
+            let texture = SKView().texture(from: App.state.keyframesSwapDrawing)
+            let spriteNode = SKSpriteNode(texture: texture)
+            let center = calculateCombinedCenterPosition(combinedNode: App.state.keyframesSwapDrawing)
+            spriteNode.position = center
+            App.state.drawingNodesSprite.append(spriteNode)
+            
+            self.addChild(spriteNode)
+            
+            if keyframeCorrespondingLink != nil {
+                keyframeCorrespondingLink?.drawings.append(App.state.keyframesSwapDrawing)
+                App.state.articulatedObject.updateDrawings(spriteNode: spriteNode, selectedDrawing: [App.state.keyframesSwapDrawing])
+            }
+            
+            setInitialState(node: spriteNode)
+            App.state.keyframingNode.addKeyframeSwap(newInput: keyframeSwapNewInputDir)
+            App.state.keyframingNode.addKeyframeSwap(newInput: keyframeSwapNewInput)
+            
+            App.state.keyframingNode.hide()
+            let newInput = (keyframeSwapNewInput - keyframeSwapNewInputDir > 0) ? keyframeSwapNewInput + 0.01 : keyframeSwapNewInput - 0.01
+            let newInputDir = (keyframeSwapNewInput - keyframeSwapNewInputDir > 0) ? keyframeSwapNewInput + 100 : keyframeSwapNewInput - 100
+            
+            App.state.keyframingNode.addKeyframeSwap(newInput: newInput)
+            App.state.keyframingNode.addKeyframeSwap(newInput: newInputDir)
+            
+            App.state.keyframeState = App.state.KEYFRAME_DONE
+            
+            for node in App.state.keyframingNode.targetNode!.children {
+                node.isHidden = true
+            }
+            
+            App.state.keyframingNodes.append(App.state.keyframingNode)
+            App.state.keyframingNode = KeyframeNode()
+            App.state.keyframesSwapDrawing = SKShapeNode()
+            keyframeCorrespondingLink = nil
+        }
+        
     }
     
     // Triggering buttons

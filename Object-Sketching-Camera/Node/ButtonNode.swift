@@ -35,10 +35,14 @@ class KeyframeButtonNode: ButtonNode {
         
         let posXLabel = SKLabelNode(text: "PosX")
         posXLabel.fontSize = 20
+        posXLabel.fontName = "AvenirNext-Bold"
+        posXLabel.position.y = -10
         posX?.addChild(posXLabel)
         
         let posYLabel = SKLabelNode(text: "PosY")
         posYLabel.fontSize = 20
+        posYLabel.fontName = "AvenirNext-Bold"
+        posYLabel.position.y = -10
         posY?.addChild(posYLabel)
         
         
@@ -56,6 +60,8 @@ class KeyframeButtonNode: ButtonNode {
         if !link!.joints.isEmpty {
             let ang1Label = SKLabelNode(text: "Ang")
             ang1Label.fontSize = 20
+            ang1Label.fontName = "AvenirNext-Bold"
+            ang1Label.position.y = -10
             ang1?.addChild(ang1Label)
             ang1?.position = link!.joints[0].joint.position
             addChild(ang1!)
@@ -63,6 +69,8 @@ class KeyframeButtonNode: ButtonNode {
             if link!.joints.count > 1 {
                 let ang2Label = SKLabelNode(text: "Ang")
                 ang2Label.fontSize = 20
+                ang2Label.fontName = "AvenirNext-Bold"
+                ang2Label.position.y = -10
                 ang2?.addChild(ang2Label)
                 ang2?.position = link!.joints[1].joint.position
                 addChild(ang2!)
@@ -107,20 +115,23 @@ class KeyframeDeformButton: ButtonNode {
         
         let labelCW = SKLabelNode(text: "CW")
         labelCW.fontSize = 10
+        labelCW.position.y = -5
         labelCW.fontName = "AvenirNext-Bold"
-        labelCW.fontColor = .black
+        labelCW.fontColor = .white
         rotCW?.addChild(labelCW)
         
         let labelCCW = SKLabelNode(text: "CCW")
         labelCCW.fontSize = 10
+        labelCCW.position.y = -5
         labelCCW.fontName = "AvenirNext-Bold"
-        labelCCW.fontColor = .black
+        labelCCW.fontColor = .white
         rotCCW?.addChild(labelCCW)
         
-        let labelWipe = SKLabelNode(text: "wipe")
+        let labelWipe = SKLabelNode(text: "Hide")
         labelWipe.fontSize = 10
+        labelWipe.position.y = -5
         labelWipe.fontName = "AvenirNext-Bold"
-        labelWipe.fontColor = .black
+        labelWipe.fontColor = .white
         wipe?.addChild(labelWipe)
         
         let nodeSize = spriteNode?.size

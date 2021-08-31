@@ -156,7 +156,7 @@ class ArticulatedLink: SKNode{
         
         guard let _ = self.drawings.first else { return }
         for (i, _) in self.drawings.enumerated() {
-            self.drawings[i].strokeColor = .yellow
+            self.drawings[i].strokeColor = App.state.strokeColor
 //            self.drawings[i].physicsBody = SKPhysicsBody(edgeChainFrom: self.drawings[i].path!)
 //            self.drawings[i].physicsBody = SKPhysicsBody(polygonFrom: self.drawings[i].path!)
 

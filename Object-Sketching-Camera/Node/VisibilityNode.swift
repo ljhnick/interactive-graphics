@@ -33,7 +33,7 @@ class VisibilityNode: TriggeringOutputNode {
         
         sliderBar.path = path
         
-        sliderBar.strokeColor = .darkGray
+        sliderBar.strokeColor = .white
         sliderBar.lineWidth = 3
         
         sliderNode = SKShapeNode(circleOfRadius: 6)
