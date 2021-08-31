@@ -116,7 +116,7 @@ using namespace std;
     
     if (contours.size() > 0) {
         for (int i = 0; i < contours.size(); i++) {
-            if (contourArea(contours[i]) > 80) {
+            if (contourArea(contours[i]) > 60) {
                 contoursValid.push_back(contours[i]);
             }
         }

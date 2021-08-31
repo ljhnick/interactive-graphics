@@ -59,6 +59,7 @@ class ArticulatedLink: SKNode{
     var drawingsSprite = [SKSpriteNode]()
     var joints = [JointNode]()
     var length = CGFloat()
+    var initialLength : CGFloat?
     
     var pos = CGPoint()
 //    var connectedLink = [ArticulatedLink]()
@@ -104,6 +105,9 @@ class ArticulatedLink: SKNode{
         lines.path = path.copy(dashingWithPhase: 1, lengths: [4.0, 4.0])
         
         length = Scene().distanceCGPoints(nodes.first!.position, nodes.last!.position)
+        if initialLength == nil {
+            initialLength = length
+        }
         
         if drawings.count > 0 {
             updateDrawings()
@@ -153,37 +157,51 @@ class ArticulatedLink: SKNode{
     func updateDrawings() {
         
         let rotationAng = -calculateRotationAngle(start: self.nodesInitial, end: self.nodes)
+        let scale = length / initialLength!
         
         guard let _ = self.drawings.first else { return }
         for (i, _) in self.drawings.enumerated() {
             self.drawings[i].strokeColor = App.state.strokeColor
 //            self.drawings[i].physicsBody = SKPhysicsBody(edgeChainFrom: self.drawings[i].path!)
 //            self.drawings[i].physicsBody = SKPhysicsBody(polygonFrom: self.drawings[i].path!)
-
             
-            let dx = self.drawingsInitial[i].position.x - self.nodesInitial.first!.position.x
-            let dy = self.drawingsInitial[i].position.y - self.nodesInitial.first!.position.y
+            let midInitialX = (self.nodesInitial.first!.position.x + self.nodesInitial.last!.position.x)/2
+            let midInitialY = (self.nodesInitial.first!.position.y + self.nodesInitial.last!.position.y)/2
+            
+            let dx = self.drawingsInitial[i].position.x - midInitialX
+            let dy = self.drawingsInitial[i].position.y - midInitialY
             
             let dxNow = cos(rotationAng)*dx - sin(rotationAng)*dy
             let dyNow = sin(rotationAng)*dx + cos(rotationAng)*dy
+            
+            let midX = (self.nodes.first!.position.x + self.nodes.last!.position.x)/2
+            let midY = (self.nodes.first!.position.y + self.nodes.last!.position.y)/2
 
-            self.drawings[i].position.x = self.nodes.first!.position.x + dxNow
-            self.drawings[i].position.y = self.nodes.first!.position.y + dyNow
+            self.drawings[i].position.x = midX + dxNow * scale
+            self.drawings[i].position.y = midY + dyNow * scale
             
             self.drawings[i].zRotation = rotationAng
-//            print(self.drawings[i].physicsBody?.angularVelocity)
+            
+            self.drawings[i].xScale = scale
+            self.drawings[i].yScale = scale
         }
         
         guard let _ = self.drawingsSprite.first else { return }
         for (i, _) in drawingsSprite.enumerated() {
-            let dx = self.drawingsSpriteInitial[i].position.x - self.nodesInitial.first!.position.x
-            let dy = self.drawingsSpriteInitial[i].position.y - self.nodesInitial.first!.position.y
+            let midInitialX = (self.nodesInitial.first!.position.x + self.nodesInitial.last!.position.x)/2
+            let midInitialY = (self.nodesInitial.first!.position.y + self.nodesInitial.last!.position.y)/2
+            
+            let dx = self.drawingsSpriteInitial[i].position.x - midInitialX
+            let dy = self.drawingsSpriteInitial[i].position.y - midInitialY
             
             let dxNow = cos(rotationAng)*dx - sin(rotationAng)*dy
             let dyNow = sin(rotationAng)*dx + cos(rotationAng)*dy
+            
+            let midX = (self.nodes.first!.position.x + self.nodes.last!.position.x)/2
+            let midY = (self.nodes.first!.position.y + self.nodes.last!.position.y)/2
 
-            self.drawingsSprite[i].position.x = self.nodes.first!.position.x + dxNow
-            self.drawingsSprite[i].position.y = self.nodes.first!.position.y + dyNow
+            self.drawingsSprite[i].position.x = midX + dxNow * scale
+            self.drawingsSprite[i].position.y = midY + dyNow * scale
                     
             self.drawingsSprite[i].zRotation = rotationAng
         }
