@@ -98,7 +98,7 @@ extension Scene {
                 let detectedMarker = convertPoint(fromView: CGPoint(x: Double(x[i]), y: Double(y[i])-8))
                 for (j, node) in App.state.markersArrayShapeNode.enumerated() {
                     let dist = distanceCGPoints(node.position, detectedMarker)
-                    if dist < 50 {
+                    if dist < 40 {
                         App.state.markersArrayShapeNode[j].position = detectedMarker
                         break
                     }

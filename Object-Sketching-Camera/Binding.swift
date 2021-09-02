@@ -23,6 +23,9 @@ extension Scene {
                 if pathNodeTemp.intersects(line) {
                     for drawing in App.state.drawingNodes {
                         if pathNodeTempStart.intersects(drawing) {
+                            if App.state.articulatedObject.links[i].drawings.contains(drawing) {
+                                return
+                            }
                             App.state.articulatedObject.links[i].drawings.append(drawing)
                             drawing.physicsBody = SKPhysicsBody(edgeLoopFrom: drawing.path!)
                             drawing.physicsBody?.contactTestBitMask = drawing.physicsBody!.collisionBitMask

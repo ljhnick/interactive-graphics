@@ -158,6 +158,7 @@ class ArticulatedLink: SKNode{
         
         let rotationAng = -calculateRotationAngle(start: self.nodesInitial, end: self.nodes)
         let scale = length / initialLength!
+//        let scale = CGFloat(1)
         
         guard let _ = self.drawings.first else { return }
         for (i, _) in self.drawings.enumerated() {

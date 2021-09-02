@@ -30,21 +30,45 @@ class JointNode: SKNode {
         
         let ang2 = (atan2(link2Vec.dy, link2Vec.dx) >= 0) ? atan2(link2Vec.dy, link2Vec.dx) : 2 * .pi + atan2(link2Vec.dy, link2Vec.dx)
         
-        let ang = ang1 - ang2
+//        let ang = ang1 - ang2
+//
+//        print("ang1")
+//        print(ang1)
+//        print("ang2")
+//        print(ang2)
+//
+//        var cwFlag = true
+//
+//        if ang2 > .pi && ang1 < .pi {
+//            cwFlag = ang > 0
+//        } else {
+//            cwFlag = ang < 0
+//        }
+//
+//        if abs(ang) > .pi {
+//            cwFlag.toggle()
+//        }
+//
+//        print(cwFlag)
+        
+        let angMax = max(ang1, ang2)
+        let angMin = min(ang1, ang2)
+        let ang = angMax - angMin
         
         var cwFlag = true
         
-        if ang2 > .pi && ang1 < .pi {
-            cwFlag = ang > 0
-        } else {
-            cwFlag = ang < 0
+        if ang > .pi {
+            cwFlag.toggle()
         }
         
-        
-        let arcPath = UIBezierPath(arcCenter: CGPoint.zero, radius: 20, startAngle: ang1, endAngle: ang2, clockwise: cwFlag)
+        let arcPath = UIBezierPath(arcCenter: CGPoint.zero, radius: 20, startAngle: angMin, endAngle: angMax, clockwise: cwFlag)
         arc?.path = arcPath.cgPath
         
+        // 0 - 360
         angle = abs(ang)
+        
+        // 0 - 180
+        angle = (ang > .pi) ? 2 * .pi - ang : ang
         
     }
     

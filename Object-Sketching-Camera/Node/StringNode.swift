@@ -27,7 +27,7 @@ class StringNode: SKNode {
         stringNode = SKShapeNode()
         
         stringNode?.lineWidth = 3
-        stringNode?.strokeColor = .darkGray
+        stringNode?.strokeColor = App.state.strokeColor
         
         stringNode?.name = "string"
         
