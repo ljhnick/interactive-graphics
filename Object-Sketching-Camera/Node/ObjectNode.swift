@@ -67,6 +67,8 @@ class ArticulatedLink: SKNode{
     var drawingsSpriteInitial = [SKSpriteNode]()
     var drawingsInitial = [SKShapeNode]()
     var nodesInitial = [SKShapeNode]()
+    var drawingRotation = [CGFloat]()
+    var drawingRotationSprite = [CGFloat]()
     
     var currentTime = TimeInterval()
     var timeArray10 = Array(repeating: TimeInterval(0), count: 40)
@@ -142,14 +144,18 @@ class ArticulatedLink: SKNode{
         nodesInitial.removeAll()
         drawingsInitial.removeAll()
         drawingsSpriteInitial.removeAll()
+        drawingRotation.removeAll()
+        drawingRotationSprite.removeAll()
         for node in self.nodes {
             self.nodesInitial.append(node.copy() as! SKShapeNode)
         }
         for drawing in self.drawings {
             self.drawingsInitial.append(drawing.copy() as! SKShapeNode)
+            drawingRotation.append(drawing.zRotation)
         }
         for drawing in drawingsSprite {
             drawingsSpriteInitial.append(drawing.copy() as! SKSpriteNode)
+            drawingRotationSprite.append(drawing.zRotation)
         }
         
     }
@@ -162,9 +168,7 @@ class ArticulatedLink: SKNode{
         
         guard let _ = self.drawings.first else { return }
         for (i, _) in self.drawings.enumerated() {
-            self.drawings[i].strokeColor = App.state.strokeColor
-//            self.drawings[i].physicsBody = SKPhysicsBody(edgeChainFrom: self.drawings[i].path!)
-//            self.drawings[i].physicsBody = SKPhysicsBody(polygonFrom: self.drawings[i].path!)
+//            self.drawings[i].strokeColor = App.state.strokeColor
             
             let midInitialX = (self.nodesInitial.first!.position.x + self.nodesInitial.last!.position.x)/2
             let midInitialY = (self.nodesInitial.first!.position.y + self.nodesInitial.last!.position.y)/2
@@ -181,7 +185,8 @@ class ArticulatedLink: SKNode{
             self.drawings[i].position.x = midX + dxNow * scale
             self.drawings[i].position.y = midY + dyNow * scale
             
-            self.drawings[i].zRotation = rotationAng
+            self.drawings[i].zRotation = rotationAng + drawingRotation[i]
+//            print(rotationAng)
             
             self.drawings[i].xScale = scale
             self.drawings[i].yScale = scale
@@ -204,7 +209,7 @@ class ArticulatedLink: SKNode{
             self.drawingsSprite[i].position.x = midX + dxNow * scale
             self.drawingsSprite[i].position.y = midY + dyNow * scale
                     
-            self.drawingsSprite[i].zRotation = rotationAng
+            self.drawingsSprite[i].zRotation = rotationAng + drawingRotationSprite[i]
         }
     }
     

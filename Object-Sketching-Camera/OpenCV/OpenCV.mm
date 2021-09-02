@@ -96,7 +96,7 @@ using namespace std;
     Mat mask;
     Mat dst;
     
-    Scalar lower = Scalar(0, 160, 0, 0);
+    Scalar lower = Scalar(0, 170, 0, 0);
     Scalar upper = Scalar(140, 255, 180, 255);
     
     inRange(src, lower, upper, mask);
