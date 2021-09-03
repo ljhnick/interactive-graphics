@@ -81,11 +81,11 @@ extension Scene {
             App.state.environment.position = CGPoint(x: 0, y: -400)
             var i = 0
             while i < num {
-                let circle = SKShapeNode(circleOfRadius: 17)
+                let circle = SKShapeNode(circleOfRadius: 10)
                 circle.position = convertPoint(fromView: CGPoint(x: Double(x[i]), y: Double(y[i])-8))
-                circle.strokeColor = .darkGray
+                circle.strokeColor = .green
                 circle.lineWidth = 1
-                circle.fillColor = .darkGray
+                circle.fillColor = .green
                 circle.name = String(i)
                 self.addChild(circle)
                 App.state.markersArrayShapeNode.append(circle)
