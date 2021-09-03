@@ -48,10 +48,10 @@ class InputMenuNode: MenuNode {
         
         posX?.position = link!.pos
         posX?.position.x -= 0
-        posX?.position.y = 15
+        posX?.position.y = -40
         posY?.position = link!.pos
         posY?.position.x += 0
-        posY?.position.y = -15
+        posY?.position.y = -70
         
         addChild(posX!)
         addChild(posY!)
