@@ -66,6 +66,7 @@ class VisibilityNode: TriggeringOutputNode {
     
     func interpolateVisibility() {
         sliderNode.position.x = CGFloat(controlInputU * 80 - 80)
+        print(controlInputU)
         updateVisibility()
     }
     

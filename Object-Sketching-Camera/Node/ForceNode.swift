@@ -122,4 +122,9 @@ class ForceNode: TriggeringOutputNode {
         
         return ang
     }
+    
+    func zeroGravity() {
+        App.state.scene.physicsWorld.gravity = CGVector.zero
+        updateForce()
+    }
 }

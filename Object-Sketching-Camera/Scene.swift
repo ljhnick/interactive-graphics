@@ -386,6 +386,7 @@ class Scene: SKScene, SKPhysicsContactDelegate {
         self.removeAllChildren()
         App.state.reset()
         
+        physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         App.state.scene.physicsWorld.removeAllJoints()
         
     }

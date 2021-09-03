@@ -49,6 +49,8 @@ extension Scene {
                 for drawing in App.state.drawingNodes {
                     if drawing.parent == self && endNode.intersects(drawing){
                         App.state.triggeringNode.outputNode = App.state.physicsNode
+                        
+                        App.state.physicsNode.removeFromParent()
                         self.addChild(App.state.physicsNode)
                         App.state.physicsNode.location = endNode.position
                         App.state.physicsNode.setupPhysicsJointTrigger()

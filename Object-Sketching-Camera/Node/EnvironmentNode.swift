@@ -83,7 +83,7 @@ class EnvironmentNode: SKNode {
     }
     
     func changeGravity() {
-        print("change gravity")
+        forceNode?.zeroGravity()
     }
     
 }
