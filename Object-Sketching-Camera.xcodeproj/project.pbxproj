@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D435282780F529009DFCBF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D435272780F529009DFCBF /* opencv2.framework */; };
 		552D373726AF89BF00B18FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D373626AF89BF00B18FCB /* AppDelegate.swift */; };
 		552D373926AF89BF00B18FCB /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 552D373826AF89BF00B18FCB /* Scene.sks */; };
 		552D373B26AF89BF00B18FCB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D373A26AF89BF00B18FCB /* Scene.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15D435272780F529009DFCBF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		552D373326AF89BF00B18FCB /* Object-Sketching-Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Object-Sketching-Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D373626AF89BF00B18FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		552D373826AF89BF00B18FCB /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				552D377726C31F9100B18FCB /* Algorithms in Frameworks */,
 				552D375826B0B88D00B18FCB /* opencv2.framework in Frameworks */,
 				552D374E26B0B1EC00B18FCB /* opencv2.framework in Frameworks */,
+				15D435282780F529009DFCBF /* opencv2.framework in Frameworks */,
 				552D377A26C31FD000B18FCB /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +148,7 @@
 				552D374626AF89C100B18FCB /* Info.plist */,
 				552D375626B0B78500B18FCB /* PrefixHeader.pch */,
 				552D374F26B0B3D400B18FCB /* Object-Sketching-Camera-Bridging-Header.h */,
+				15D435272780F529009DFCBF /* opencv2.framework */,
 				552D375726B0B88D00B18FCB /* opencv2.framework */,
 			);
 			path = "Object-Sketching-Camera";
